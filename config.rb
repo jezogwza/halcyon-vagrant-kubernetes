@@ -1,17 +1,26 @@
 # Kubernetes Details: Instances
 $kube_version      = "ubuntu/xenial64"
-$kube_memory       = 1024
-$kube_vcpus        = 1
+$kube_memory       = 2048
+$kube_disk 	   = 40
+$kube_vcpus        = 2
 $kube_count        = 3
 $git_commit        = "6a7308d"
 $subnet            = "192.168.236"
 $public_iface      = "enp0s8"
 $forwarded_ports   = {}
 
+# Extend VM Storage
+$disk_enabled	   = true
+$disk_location	   = "~/VirtualBox VMs/"
+$disk_image_file   = "kubehd.vdi"
+$disk_mount	   = "/export"
+$disk_vol	   = "export"
+$disk_device	   = "/dev/sdc"
+
 # Ansible Declarations:
 #$number_etcd       = "kube[1:2]"
 #$number_master     = "kube[1:2]"
-#$number_worker     = "kube[1:3]"
+#$number_worker     = "kube[1:2]"
 $kube_masters      = "kube1"
 $kube_workers      = "kube[2:3]"
 $kube_control      = "kube1"
